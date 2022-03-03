@@ -49,7 +49,7 @@ def predictImage(request):
     predictedLabel = labelInfo[str(np.argmax(predi[0]))]
     context = {'filePathName': filePathName,
                'predictedLabel': predictedLabel[1]}
-    a = Image(name=filePathName, link=predictedLabel)
+    a = Image(name=predictedLabel[1], link=filePathName)
     a.save()
     return render(request, 'index.html', context)
 
